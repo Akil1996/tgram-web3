@@ -11,8 +11,8 @@ var TelegramBot = require('node-telegram-bot-api')
 var token = '2103562216:AAG5AABt9NtSjFO5fmeYF5Ca4ft5XZ2rnTY';
 var bot = new TelegramBot(token, {polling:true});
 
-const usrAdmin = [912008246];
-const usrLis = [912008246];
+const usrAdmin = [912008246,1972825137];
+const usrLis = [912008246,1972825137];
 // Variables To Change via Telegram
 
 let weth = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2';
@@ -192,7 +192,7 @@ bot.onText(/\/maxfee (.+)/, function(msg,match){
 });
 
 bot.onText(/\/priorityfee (.+)/, function(msg,match){
-    if(usrAdmin.indexOf(msg.chat.id) !== -1)  
+    if(usrLis.indexOf(msg.chat.id) !== -1)  
     {  
         var chatId = msg.chat.id;
         priorityfee = match[1];
@@ -272,5 +272,19 @@ bot.onText(/\/adduser (.+)/, function(msg,match){
 });
 
     
+var http = require('http');
+var fs = require('fs');
 
+const PORT=8080; 
+
+fs.readFile('./index.html', function (err, html) {
+
+    if (err) throw err;    
+
+    http.createServer(function(request, response) {  
+        response.writeHeader(200, {"Content-Type": "text/html"});  
+        response.write(html);  
+        response.end();  
+    }).listen(PORT);
+});
 
