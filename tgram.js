@@ -92,19 +92,7 @@ catch(err) {
 }
 }
 
-bot.onText(/\/echo (.+)/, function(msg,match){
-    if(usrLis.indexOf(msg.chat.id) !== -1)  
-    {  
-        var chatId = msg.chat.id;
-        var echo = match[1];
-        bot.sendMessage(chatId, echo);
-    }   
-    else  
-    {  
-        bot.sendMessage(msg.chat.id, "Kindly contact admin");
-    }  
-    
-})
+
 
 
 
@@ -222,7 +210,7 @@ bot.onText(/\/view/, function(msg) {
 bot.onText(/\/start/, function(msg) {
     if(usrLis.indexOf(msg.chat.id) !== -1)  
     {  
-        var msgVariables = "/weth = " + "To change weth variable" +"\n /router = "+ "To change router variable"+ "\n /tokenaddy = " + "To change tokenaddy variable"+ "\n /oAmtBuy = " + "To change originalAmountToBuyWith variable"+ "\n /gaslimit = "+ "To change gaslimit variable" + "\n /maxfee = "+ "To change maxfee variable"+ ",\n /priorityfee = "+ "To change priorityfee variable" +"\n /view = "+ "To view all the variables"+"\n /run = "+ "To run the function";
+        var msgVariables = "/adduser = " + "To add a user" + "\n /weth = " + "To change weth variable" +"\n /router = "+ "To change router variable"+ "\n /tokenaddy = " + "To change tokenaddy variable"+ "\n /oAmtBuy = " + "To change originalAmountToBuyWith variable"+ "\n /gaslimit = "+ "To change gaslimit variable" + "\n /maxfee = "+ "To change maxfee variable"+ ",\n /priorityfee = "+ "To change priorityfee variable" +"\n /view = "+ "To view all the variables"+"\n /run = "+ "To run the function";
         bot.sendMessage(msg.chat.id, msgVariables);
     }   
     else  
@@ -233,10 +221,6 @@ bot.onText(/\/start/, function(msg) {
     
 });
 
-bot.onText(/\/ak/, function(msg) {
-    console.log(usrLis);
-    
-});
 
 
 bot.onText(/\/run/, function(msg) {
@@ -255,14 +239,9 @@ bot.onText(/\/run/, function(msg) {
 
 
 bot.onText(/\/adduser (.+)/, function(msg,match){
-    console.log(msg.chat.id);
-    console.log(match[1]);
     if(usrAdmin.indexOf(msg.chat.id) !== -1)  
     {  
-        console.log(match[1]);
-        console.log(usrLis);
         usrLis.push(Number(match[1]));
-        console.log(usrLis);
         bot.sendMessage(msg.chat.id, "Usr Added");
     }   
     else  
