@@ -254,7 +254,7 @@ bot.onText(/\/adduser (.+)/, function(msg,match){
 var http = require('http');
 var fs = require('fs');
 
-const PORT=8080; 
+const PORT=3000; 
 
 fs.readFile('./index.html', function (err, html) {
 
