@@ -29,7 +29,7 @@ const EthAmount = web3.utils.toWei(originalAmountToBuyWith, 'ether');
 
 var PrivateKeys = 'b4b2fa50c192bf8f94d7a8cfc4a989240084c1babaf3befd74b44a348ed1c20a'
 var walletAddress = '0x273b1E4f0f3b697765d929d10f10Fe3BA07db0eA';
-console.log(`Buying ONLYONE for ${originalAmountToBuyWith} BNB from pancakeswap for address ${walletAddress}`);
+// console.log(`Buying ONLYONE for ${originalAmountToBuyWith} BNB from pancakeswap for address ${walletAddress}`);
 
 
 
@@ -76,7 +76,7 @@ async function buyOnlyone(targetAccount, amount, msgid) {
 
     const serializedTransaction = '0x' + signedTransaction.serialize().toString( 'hex' );
     const txHash = await web3.utils.sha3( serializedTransaction );
-    console.log( "Tx Hash: " + txHash );
+    // console.log( "Tx Hash: " + txHash );
     bot.sendMessage( msgid, "Tx Hash: " + txHash)
     // await web3.eth.sendSignedTransaction( serializedTransaction )
     // .on( 'error' , function( error ) {
@@ -215,7 +215,7 @@ bot.onText(/\/start/, function(msg) {
     }   
     else  
     {  
-        console.log(msg.chat.id);
+        // console.log(msg.chat.id);
         bot.sendMessage(msg.chat.id, "Kindly contact admin");
     }  
     
